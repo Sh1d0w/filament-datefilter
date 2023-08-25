@@ -20,13 +20,13 @@ class DateFilter extends BaseFilter
 
     protected bool $displayRangeInLine = false;
 
-    protected CarbonInterface | string | Closure | null $maxDate = null;
+    protected CarbonInterface|string|Closure|null $maxDate = null;
 
-    protected CarbonInterface | string | Closure | null $minDate = null;
+    protected CarbonInterface|string|Closure|null $minDate = null;
 
-    protected string | Closure | null $displayFormat = 'M j, Y';
+    protected string|Closure|null $displayFormat = 'M j, Y';
 
-    protected string | Closure | null $timezone = null;
+    protected string|Closure|null $timezone = null;
 
     protected array $labels = [
         'from' => 'From',
@@ -36,8 +36,6 @@ class DateFilter extends BaseFilter
     protected function setUp(): void
     {
         parent::setUp();
-
-        $this->displayFormat = config('tables.date_format', $this->displayFormat);
 
         $this
             ->useColumn($this->getName())
@@ -182,28 +180,28 @@ class DateFilter extends BaseFilter
         return $this;
     }
 
-    public function maxDate(CarbonInterface | string | Closure | null $date): static
+    public function maxDate(CarbonInterface|string|Closure|null $date): static
     {
         $this->maxDate = $date;
 
         return $this;
     }
 
-    public function minDate(CarbonInterface | string | Closure | null $date): static
+    public function minDate(CarbonInterface|string|Closure|null $date): static
     {
         $this->minDate = $date;
 
         return $this;
     }
 
-    public function displayFormat(string | Closure | null $format): static
+    public function displayFormat(string|Closure|null $format): static
     {
         $this->displayFormat = $format;
 
         return $this;
     }
 
-    public function timezone(string | Closure | null $timezone): static
+    public function timezone(string|Closure|null $timezone): static
     {
         $this->timezone = $timezone;
 
